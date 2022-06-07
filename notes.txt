@@ -1,0 +1,113 @@
+1- In the Planning process the step about building the website based on content (you should build the website based on the content not the design then the content.)
+-------------------------------------------------------------------------
+2- NOTE: keep in mind that content who should guide the design not the other way around.
+-------------------------------------------------------------------------
+3- NOTE: You don't start styling in code until you have a general idea of your components and layout from step3 (sketching PEN AND PAPER OR DIGITAL LIKE e.g. figma).
+-------------------------------------------------------------------------
+4- (max-width: 1000px;) this means if the viewport width larger than 1000px then the element width should be the defined width (1000px), OTHERWISE the viewport width is less than defined width(1000) the element will shrink to fit the viewport width. 
+-------------------------------------------------------------------------
+5- NOTE: 1rem = 16px browser default font-size, unless you change the value in the <html> root element. and this is useful because you can change the size in one place(<html> element) and then it will automatically change in the rest of the page.
+EXAMPLE: of changing the default value for root element 
+
+html {
+   font-size: 10px;
+}
+
+THEN => 1rem no longer equal 16px it's now (1rem = 10px).
+=> we use this trick of 10px to make it easy for calculations. 
+=> NOTE: instead of using (10px) we use (62.5%) which is equal to (62.5% = 10px)
+10px / 16px default = 0.625 = 62.5%
+the reason why we use percentage(%) is to respect user's browser font size setting.
+-------------------------------------------------------------------------
+6- /* THIS helper class is related to margins that we want to reuse in multiple places, but that we do not want to add to specific elements
+because then when we want to reuse them somewhere else, it might create some conflicts that we don't want. sm => (small) */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+the important keyword here is to make sure this will implemented over all others.
+md=> (medium)
+-------------------------------------------------------------------------
+7- NOTE: to overlap images on top of each other we use margin-right or left with negative value.
+margin-right: -16px;
+-------------------------------------------------------------------------
+8- NOTE: => The semantic way to do the navigation is to put the <a> elements inside of an <ul> unordered list.
+-------------------------------------------------------------------------
+9- RESOLVING CONFLICTS:
+This selector to make sure this will always apply because it has higher specificity (the and selector) .class.another-class{} with no space between. 
+--------------------------------------------------
+-----------------------
+10- The idea behind dividing css file into multiple files, is to write clean code and write reusable components.
+-------------------------------------------------------------------------
+11- TRICK => adding a nice hover effect on image without overflowing the parent container.
+-------------------------------------------------------------------------
+12- /* Only add this margin bottom if the grid element is not the last child inside it's parent container
+(this is same effect for the above code but it's shorter) */
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+-------------------------------------------------------------------------
+13- background-image: url(../img/adel.jpg);
+The photos in css uses these dots and forward slash (../) to go out of the css folder to the root. unlike the html we define the path to the photo directly (img/hero.jpg) because in html file you are in the root folder.
+
+=> we use these two properities (url, linear-gradient) togther if we want to overlay an image with gradient.
+-------------------------------------------------------------------------
+14- When we want to define a gradient on a background we use (background-image: linear-gradient(to right bottom, #ffa94d, #cf711f);) background-image properity with linear-gradient function. 
+and you can use it with degrees (90deg) or the to keyword (to right bottom, to left top, etc)
+-------------------------------------------------------------------------
+15- These two new attributes (role="", aria-label="" instead of - alt="" - ) are about accessiblity to give semantic meaning to the <div> element to act if it was an <img> element.
+-------------------------------------------------------------------------
+16- Forms don't inherit font attributes from body by default, so you should do this step to make the form inherit the font attributes from its parent. 
+=> font-family: inherit;
+=> color: inherit; 
+and others properities.....
+------------------------------------------------------------
+-------------
+17- <main> element is for content that is specific to a page otherwise <header> or <footer> elements might be repeated across multiple pages, since they're part of the overall website.
+-------------------------------------------------------------------------
+18- We can use 
+margin-...: auto; 
+along with flex box to figure out the margin needed to push the element to the end automatically.
+--------------------------------------------------------------------------------------------------------------------------------
+
+----------------  MEDIA QUERIES ------------------
+
+1- NOTE: When there are conflicts between media queries the last one in code will apply.
+EXAMPLE=> 
+@media(max-width: 800px) {
+  color: red;
+  }
+@media(max-width: 600px) {
+  color: blue;
+  }
+here in this example the blue color will apply because it's the last one in code.
+-------------------------------------------------------------------------
+2- NOTE: Perfect strategy to choose breakpoints in this strategy you just put the breakpoints wherever the design starts to look weird (like out of place), and try to not think about devices at all. but, it's hard to do it just like that so, we will use this strategy togther with good strategy.
+==> summary: 
+      a- look where our design breaks.
+      b- taking into account most common screen width ranges.
+-------------------------------------------------------------------------
+STEPS WHEN WRITING QUERIES:
+  1- start at the top at certain breakpoint 
+  2- look at the design section by section
+  3- start fix each section separately
+  4- not all sections at once
+  5- once you are done move to the next breakpoint.
+  6- don't write too much css rules 10 or 15 in one single media query.
+
+==> HINT: when writing css rules inside of media use (rem) as usual but in the media itself just use (em)
+-------------------------------------------------------------------------
+NOTE: /* 2/3 = 66.6% + 1/3 = 33.3%*/
+grid-template-columns: 2fr 1fr;
+
+/* 3/5 = 60% + 2/5 = 40%*/
+grid-template-columns: 3fr 2fr;
+-------------------------------------------------------------------------
+19- NOTE In css selectors you can select an element with its attributes for example name attribute in brackets[]
+-------------------------------------------------------------------------
+      ******** MOBILE NAVIGATION ********* 
+The easy trick to make mobile navigation work is to build the main structure in css and manipulate the navigation with javascript by adding or removing the class from the HTML for example (nav-open) in the header.
+-------------------------------------------------------------------------
+20- NOTE: .sticky .header
+this trick of adding some styles depending on some other class like in the (sticky navigation, and mobile navigation) only works if the class you are adding is in the parent of the element you are trying to style.
+-------------------------------------------------------------------------
