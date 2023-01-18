@@ -2,6 +2,7 @@
 In media queries (rem and em) do not depend on html font-size!  
 Instead, 1rem = 1em = 16px(default browser font-size)
 Although we won't use (rem) in media queries because it has bugs in some browsers instead, we will use em.
+And inside the query itself we will use rem as we used it before in style and general.
 */
 
 /*************************/
